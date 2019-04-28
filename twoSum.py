@@ -15,10 +15,7 @@ class Solution:
 
         return nums, target
 
-    def twoSum(self, nums:
-        List[int], target
-
-        : int) -> List[int]:
+    def twoSum(self, nums:List[int], target: int) -> List[int]:
         """
         Find the indices of the two numbers that sum to the target
         :returns: list of 2 indices
@@ -43,3 +40,30 @@ class Solution:
                 break
 
         return list(x)
+
+    def my_comb(self, nums:List[int], target:int) -> List[int]:
+        """
+        Create combinations and indices at the same time
+        :return: result structure is [index, index]
+        """
+        total = 0
+
+        for i,x in enumerate(nums):
+            # print(f"total:{total}")
+            # print(f"i:x {i,x}")
+            total += x
+            for j,y in enumerate(nums[i+1:]):
+                # print(f"total:{total}")
+                # print(f"j,y: {j,y}")
+                if (total + y) == target:
+                    # print(f"total:{total+y}")
+                    # print(f" result: {i,j+i+1}")
+                    return [i,j+i+1]
+            else:
+                total = 0
+                continue
+        return [i,j+i+1]
+
+
+"""Runtime: 5124 ms, faster than 22.34% of Python3 online submissions for Two Sum.
+Memory Usage: 13.6 MB, less than 48.21% of Python3 online submissions for Two Sum."""
