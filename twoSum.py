@@ -41,6 +41,32 @@ class Solution:
 
         return list(x)
 
+    def binary_search(self, nums:List[int], target: int) -> List[int]:
+        """
+        Sort first, then search?
+        """
+        #indexed = sorted({x:i for i,x in enumerate(nums)})
+        #print(sorted)
+
+        #logic is:
+        # if target > last 2 in the left half, just do the right half
+        # elif target < first 2 in the right half, just do the left half
+
+        #total = 0
+        if len(nums) < 5:
+            self.my_comb(nums, target)
+        else:
+            mid = len(nums) // 2
+
+            if target > nums[mid - 1] + nums[mid - 2]:
+                right = nums[mid:]
+                self.my_comb(right, target)
+                #return self.binary_search(right, target)
+            elif target < nums[mid + 1] + nums[mid + 2]:
+                left = nums[0:mid]
+                self.my_comb(left, target)
+            #return self.binary_search(left, target)
+
     def my_comb(self, nums:List[int], target:int) -> List[int]:
         """
         Create combinations and indices at the same time

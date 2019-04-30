@@ -7,7 +7,8 @@ class TestTwoSum(unittest2.TestCase):
         nums = [2,7,11,15]
         target = 9
         solve = Solution()
-        x = solve.twoSum(nums, target)
+        #x = solve.twoSum(nums, target)
+        x = solve.binary_search(nums, target)
         assert x == [0,1]
 
     def test_five_unique_mycomb(self):
@@ -21,7 +22,8 @@ class TestTwoSum(unittest2.TestCase):
         nums = [3,3]
         target = 6
         solve = Solution()
-        x = solve.twoSum(nums, target)
+        #x = solve.twoSum(nums, target)
+        x = solve.binary_search(nums, target)
         assert x == [0,1]
 
     def test_two_identical_mycomb(self):
